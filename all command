@@ -1,0 +1,41 @@
+cd day3
+dir
+cd workspace
+dir
+terraform init
+terraform plan --var-file dev.tfvars
+terraform apply --auto-approve --var-file dev.tfvars
+terraform plan --var-file uat.tfvars
+terraform destroy --var-file dev.tfvars
+terraform init
+terraform workspace list
+terraform workspace new uat
+terraform workspace new dev
+terraform workspace list
+terraform workspace select uat
+terraform plan --var-file uat.tfvars
+terraform apply --var-file uat.tfvars
+terraform workspace select dev
+terraform plan --var-file dev.tfvars
+terraform apply --var-file dev.tfvars
+terraform workspace list
+git --version
+git init
+git add .
+git status
+git restore --staged .
+git reset
+git status
+git add main.tf variable.tf uat.tfvars dev.tfvars
+git commit -m "this is workspace concept file"
+git config --global user.email "subh@gmail.com"
+git config --global user.name "subh"
+git commit -m "this is workspace concept file"
+git status
+git add remote origin https://github.com/penn-api/terraform-workspace.git
+git remote add origin https://github.com/penn-api/terraform-workspace.git
+git push -u origin main
+git status
+git branch
+git push -u origin master
+history
